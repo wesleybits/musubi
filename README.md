@@ -21,6 +21,6 @@ _(About that previous paragraph, that's what I did before I saw that Processing 
 
 Next is Ketai.  The furnished release that you can get via the Processing library manager won't work with Android v4.4.2.  You're gonna need to get version 9, which is available in their source repo.  Be sure to star them while you're there, Ketai _is_ a pretty badass library.  
 
-To get Processing to use the it, in Processing do _File_ > _Preferences_ and look at the location of your Sketchbook.  In that directory there should be a folder named `libraries`.  If there isn't, make it and copy `ketai/downloads/Ketai_v9` there.  Now completely quit Processing and fire it back up again.
+To get Processing to use the it, in Processing do _File_ > _Preferences_ and look at the location of your sketchbook.  In that directory there should be a folder named `libraries`.  If there isn't, make it and copy `ketai/downloads/Ketai_v9` there.  Now completely quit Processing and fire it back up again.
 
 At this point, all the hard parts are done.  Just clone this stuff into your sketchbook and Processing will find it automatically.  Read up on Processing's Android Mode [here](https://github.com/processing/processing-android/wiki) and be sure to look at the Ketai stuff [here](http://ketai.org/get-started/).
