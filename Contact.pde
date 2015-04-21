@@ -2,10 +2,20 @@ class Contact {
   private int id;
   private String name;
   private ArrayList<Contact> children;
+  private Contact parent;
   
   public Contact(int _id, String _name) {
-    this.id = _id;
-    this.name = _name;
+    id = _id;
+    name = _name;
+    children = null;
+    parent = null;
+  }
+  
+  public Contact(int _id, String _name, Contact _parent) {
+    id = _id;
+    name = _name;
+    children = null;
+    parent = _parent;
   }
   
   int id() { return id; }
@@ -13,6 +23,8 @@ class Contact {
   
   String name() { return name; }
   void name(String _name) { name = _name; }
+  
+  Contact parent() { return parent; }
   
   ArrayList<Contact> children() {
     if ( children == null ) {
@@ -25,7 +37,8 @@ class Contact {
           children.add(
             new Contact(
               db.getInt("id"),
-              db.getString("name")
+              db.getString("name"),
+              this
             )
           );
         }
@@ -37,5 +50,3 @@ class Contact {
   
   void resetChildren() { children = null; }
 }
-  
-  
