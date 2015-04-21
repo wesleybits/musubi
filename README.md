@@ -15,7 +15,7 @@ Get the Java JDK for your platform, this is important.  If you're on Linux, cons
 
 Processing is easy.  Download it.  Extract it.  You're done.
 
-Follow the Android SDK install directions.  Don't install the Android Studio option unless you intend to work on Android apps outside of Processing.  Android work is kind of insane to do without the Studio or Processing.  When you're selecting Android APIs to use, be sure to include the APIs for Android 4.4.2, since that's what my friend is currently running, but also feel perfectly free to grab whatever other goodies you wanna get your mits on.  At this point, fire up Processing and install Android Mode; when it asks, just point it to where you put the Android SDK.
+Follow the Android SDK install directions.  Don't install the Android Studio option unless you intend to work on Android apps outside of Processing.  Android work is kind of insane to do without the Studio or Processing.  When you're selecting Android APIs to use, be sure to include the APIs for Android 4.4.2, since that's what my friend is currently running, but also feel perfectly free to grab whatever other goodies you wanna get your grubby mits on.  At this point, fire up Processing and install Android Mode; when it asks, just point it to where you put the Android SDK.
 
 _(About that previous paragraph, that's what I did before I saw that Processing 3 will install the Android SDK for you; so you can go ahead and try that if you're feeling adventurous.  Tell me about your experience!)_
 
@@ -23,4 +23,4 @@ Next is Ketai.  The furnished release that you can get via the Processing librar
 
 To get Processing to use the it, in Processing do _File_ > _Preferences_ and look at the location of your Sketchbook.  In that directory there should be a folder named `libraries`.  If there isn't, make it and copy `ketai/downloads/Ketai_v9` there.  Now completely quit Processing and fire it back up again.
 
-Now all the hard parts are done.  Now just clone this stuff into your sketchbook and Processing will find it automatically.  Read up on Processing's Android Mode [here](https://github.com/processing/processing-android/wiki) and be sure to look at the Ketai stuff [here](http://ketai.org/get-started/).
+At this point, all the hard parts are done.  Just clone this stuff into your sketchbook and Processing will find it automatically.  Read up on Processing's Android Mode [here](https://github.com/processing/processing-android/wiki) and be sure to look at the Ketai stuff [here](http://ketai.org/get-started/).
