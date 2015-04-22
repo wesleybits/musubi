@@ -4,6 +4,8 @@ KetaiSQLite db;
 
 int panX = 0;
 int panY = 0;
+color grey = color(210);
+color textGrey = color(80);
 
 ArrayList<Contact> contacts = new ArrayList<Contact>();
 
@@ -31,8 +33,6 @@ void setup() {
 
 void draw() {
   color vijay = colorFromString("Vijay Kesavan");
-  color grey = color(210);
-  color textGrey = color(80);
   
   noStroke();
   

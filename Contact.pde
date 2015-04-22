@@ -45,4 +45,15 @@ class Contact {
   void resetChildren() { children = null; }
   
   color getColor() { return colorFromString(name); }
+  
+  void draw(int x, int y) {
+    fill( grey );
+    rect( x - 55, y - 55, 165 + textWidth(name), 110, 110 );
+    
+    fill( getColor() );
+    ellipse( x, y, 80, 80 );
+    
+    fill( textGrey );
+    text(name, x + 55, y + 20);
+  }
 }
