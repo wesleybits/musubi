@@ -29,24 +29,20 @@ class Contact {
   ArrayList<Contact> children() {
     if ( children == null ) {
       children = new ArrayList<Contact>();
+      
       if ( db.connect() ) {
-        db.query(
-          "SELECT id, name FROM contacts WHERE introduced_by = '" + id + "' ORDER BY name ASC;"
-        );
+        db.query( contactsByIntroducingContact(id) );
         while ( db.next() ) {
-          children.add(
-            new Contact(
-              db.getInt("id"),
-              db.getString("name"),
-              this
-            )
-          );
+          children.add(new Contact(db.getInt("id"), db.getString("name"), this));
         }
       }
+      
       println("found " + children.size() + " # of folks introduced by " + name + "!");
     }
     return children;
   }
   
   void resetChildren() { children = null; }
+  
+  color getColor() { return colorFromString(name); }
 }
