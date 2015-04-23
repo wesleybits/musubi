@@ -4,23 +4,19 @@ This contains an ongoing project for a friend who really kind of needs a way to 
 
 ## Getting Started
 
-So you decided to mess around with __musubi__, so you forked it and feel pretty ready to start hacking.  Good for you!  Here's what you'll need to get started:
+So you decided to mess around with __musubi__, so you forked it and feel pretty ready to get hacking.  Good for you! Here's what you'll need to get started:
 
 - [Java JDK8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-- [Processing v3.0a5 32-bit version](http://processing.org)
+- [Processing v3.0a5](http://processing.org)
 - [Android SDK](https://developer.android.com/sdk/installing/index.html)
-- [Ketai v9](http://ketai.org)
+- [Ketai](http://ketai.org)
 
-Get the Java JDK for your platform, this is important.  If you're on Linux, consult your package manager or any community maintained repos that your distro is friendly with before going right to Oracle; this will save you buckets of frustration.  In comparison, Windows and Mac OSX users will have a much easier time with this.
+First you want to update your Java JDK to version 8.  The one from Oracle is the most reliable, so you're on your own if you choose to use others like OpenJDK.  Linux users should consult their distro's docs on how to get Oracle's JDK through their package managers, since a manual install is a painful thing to do.  Users of other platforms (Windows, Macintosh) can just go to Oracle's site since they make installing on those platforms painless.
 
-Processing is easy.  Download it.  Extract it.  You're done.
+Next is Processing.  You will always want the latest version, which is currently 3.0a5.  Get the one for your platform.  There is no install, just unzip it someplace where you can find it later and fire it up.
 
-Follow the Android SDK install directions.  Don't install the Android Studio option unless you intend to work on Android apps outside of Processing.  Android work is kind of insane to do without the Studio or Processing.  When you're selecting Android APIs to use, be sure to include the APIs for Android 4.4.2, since that's what my friend is currently running, but also feel perfectly free to grab whatever other goodies you wanna get your grubby mits on.  At this point, fire up Processing and install Android Mode; when it asks, just point it to where you put the Android SDK.
+The Android SDK is painless.  If you're on 64-bit linux, be sure that you have complete 32-bit compatibility set up; if you don't or aren't sure, consult your docs and community to get this working.  Click on Processing's mode selection and pick "Add Mode ...".  Give it a minute, and you'll see "Android Mode" at the top with Processing's logo next to it.  Install that; and when done go back to Processing's mode selector and pick "Android Mode".  Here it'll ask if you want to point it to an Android SDK you have already, or if you want Processing to install one for you.  If you don't have the Android SDK already, pick the later since it'll grab everything you need to get started right away.  This can take a while, so you should make a sandwich and eat it while you wait.
 
-_(About that previous paragraph, that's what I did before I saw that Processing 3 will install the Android SDK for you; so you can go ahead and try that if you're feeling adventurous.  Tell me about your experience!)_
+For Ketai, on the menubar click "Android" then "Import Library" then "Add Library ...".  In the dialog that pops up, type "Ketai" in the search bar and install the library.
 
-Next is Ketai.  The furnished release that you can get via the Processing library manager won't work with Android v4.4.2.  You're gonna need to get version 9, which is available in their source repo.  Be sure to star them while you're there, Ketai _is_ a pretty badass library.  
-
-To get Processing to use the it, in Processing do _File_ > _Preferences_ and look at the location of your sketchbook.  In that directory there should be a folder named `libraries`.  If there isn't, make it and copy `ketai/downloads/Ketai_v9` there.  Now completely quit Processing and fire it back up again.
-
-At this point, all the hard parts are done.  Just clone this stuff into your sketchbook and Processing will find it automatically.  Read up on Processing's Android Mode [here](https://github.com/processing/processing-android/wiki) and be sure to look at the Ketai stuff [here](http://ketai.org/get-started/).
+Now you're done.  Just clone this stuff into your sketchbook and Processing will find it automatically.  Read up on Processing's Android Mode [here](https://github.com/processing/processing-android/wiki) and be sure to look at the Ketai stuff [here](http://ketai.org/get-started/).
