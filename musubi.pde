@@ -32,7 +32,7 @@ void setup() {
 }
 
 void draw() {
-  color vijay = colorFromString("Vijay Kesavan");
+  color vijay = colorFromString("Vijaylaxsmi");
   
   noStroke();
   
@@ -45,13 +45,13 @@ void draw() {
     textSize(80);
     
     fill( grey );
-    rect( width / 2 - 55, height / 2 - 55, 165 + textWidth("Vijay Kesavan"), 110, 110 );
+    rect( width / 2 - 55, height / 2 - 55, 165 + textWidth("Vijaylaxsmi"), 110);
     
     fill( vijay );
     ellipse( width / 2, height / 2, 80, 80 );
     
     fill( textGrey );
-    text("Vijay Kesavan", width / 2 + 55, height / 2 + 20);
+    text("Vijaylaxsmi", width / 2 + 55, height / 2 + 20);
   popMatrix();
 }
 
