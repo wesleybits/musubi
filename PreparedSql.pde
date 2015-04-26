@@ -33,10 +33,10 @@ final String populateContacts =
     "(22,  'S. Wolfram',  9)";
     
 final String contactsWithoutIntroduction =
-  "SELECT id, name FROM contacts WHERE introduced_by IS NULL ORDER BY name ASC;";
+  "SELECT id, name FROM contacts WHERE introduced_by IS NULL ORDER BY name DESC;";
 
 String contactsByIntroducingContact(int id) {
-  return "SELECT id, name FROM contacts WHERE introduced_by = '" + id + "' ORDER BY name ASC;";
+  return "SELECT id, name FROM contacts WHERE introduced_by = '" + id + "' ORDER BY name DESC;";
 }
 
 

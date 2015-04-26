@@ -1,9 +1,13 @@
+int sumBytes(byte[] bytes) {
+  int t = 0;
+  for (byte b : bytes) {
+    t += (int)b;
+  }
+  return t;
+}
 
 byte avgBytes(byte[] bytes) {
-  long t = 0;
-  for (byte b : bytes) {
-    t += (long)b;
-  }
+  int t = sumBytes(bytes);
   return (byte)(t / bytes.length);
 }
 
@@ -24,59 +28,28 @@ byte[][] thirds(byte[] bytes) {
 color colorFromString(String str) {
   color rv;
   if (str.getBytes().length >= 3) {
-    byte[][] g = thirds(str.getBytes());
+    byte[][] g = thirds(str.toLowerCase().getBytes());
     int[] shade = new int[3];
     
     for (int i = 0; i < 3; i++) {
-      shade[i] = (int)avgBytes(g[i]);
+      shade[i] = sumBytes(g[i]);
     }
     
-    if (shade[0] > shade[1] && shade[0] > shade[2]) {
-      if (shade[1] > shade[2]) {
-        rv = color(
-          (shade[0] % 150) + 100,
-          (shade[1] % 100) + 75,
-          (shade[2] % 100) + 50
-        );
-      } else {
-        rv = color(
-          (shade[0] % 150) + 100,
-          (shade[1] % 100) + 50,
-          (shade[2] % 100) + 75
-        );
-      }
-    } else if (shade[1] > shade[0] && shade[1] > shade[2]) {
-      if (shade[0] > shade[2]) {
-        rv = color(
-          (shade[0] % 100) + 75,
-          (shade[1] % 150) + 100,
-          (shade[2] % 100) + 50
-        );
-      } else {
-        rv = color(
-          (shade[0] % 100) + 50,
-          (shade[1] % 150) + 100,
-          (shade[2] % 100) + 75
-        );
-      }
-    } else {
-      if (shade[0] > shade[1]) {
-        rv = color(
-          (shade[0] % 100) + 75,
-          (shade[1] % 100) + 50,
-          (shade[2] % 150) + 100
-        );
-      } else {
-        rv = color(
-          (shade[0] % 100) + 50,
-          (shade[1] % 100) + 75,
-          (shade[2] % 150) + 100
-        );
-      }
-    }
+    int biggest = shade[0];
+    if (shade[1] >= biggest) biggest = shade[1];
+    if (shade[2] >= biggest) biggest = shade[2];
     
+    float red = (float)(shade[0]) / (float)(biggest);
+    float green = (float)(shade[1]) / (float)(biggest);
+    float blue = (float)(shade[2]) / (float)(biggest);
+    
+    rv = color(
+      biggest == shade[0] ? (int)(255.0 * red) : (int)(180.0 * red),
+      biggest == shade[1] ? (int)(250.0 * green) : (int)(180.0 * green),
+      biggest == shade[2] ? (int)(250.0 * blue) : (int)(180.0 * blue)
+    );
   } else {
-    int g = (int)avgBytes(str.getBytes());
+    int g = (int)avgBytes(str.toLowerCase().getBytes());
     rv = color(g);
   }
   return rv;

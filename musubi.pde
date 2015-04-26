@@ -1,18 +1,22 @@
+import android.view.MotionEvent;
 import ketai.data.*;
+import ketai.ui.*;
 
 KetaiSQLite db;
+KetaiGesture gesture;
 
 int panX = 0;
 int panY = 0;
 color grey = color(210);
 color textGrey = color(80);
 
-ArrayList<Contact> contacts = new ArrayList<Contact>();
+Vijaylaxsmi vijay;
 
 PFont labelFont;
 
 void setup() {
   db = new KetaiSQLite(this);
+  gesture = new KetaiGesture(this);
   if ( db.connect() ) {
     if (! db.tableExists("contacts") ) {
       db.execute(createContacts);
@@ -20,21 +24,17 @@ void setup() {
     }
     
     db.query( contactsWithoutIntroduction );
-    
-    while ( db.next() ) {
-      contacts.add(new Contact(db.getInt("id"), db.getString("name")));
-    }
   }
   
   labelFont = createFont("Meera.ttf", 110);
 
   smooth();
+  vijay = new Vijaylaxsmi();
+  vijay.location( 100, 100 );
+  vijay.destination( 100, 100 );
 }
 
 void draw() {
-  String name = "Vijaylaxsmi";
-  color vijay = colorFromString(name);
-  
   noStroke();
   
   fill( color(255,255,255) );
@@ -45,15 +45,13 @@ void draw() {
     textFont(labelFont);
     textSize(80);
     
-    fill( grey );
-    rect( width / 2 - 55, height / 2 - 55, 165 + textWidth(name), 110);
-    
-    fill( vijay );
-    ellipse( width / 2, height / 2, 80, 80 );
-    
-    fill( textGrey );
-    text(namet / 2 + 20);
+    vijay.draw();
+    vijay.update();
   popMatrix();
+}
+
+void onTap(float x, float y) {
+  vijay.resetChildren();
 }
 
 void mouseDragged() {
@@ -62,4 +60,9 @@ void mouseDragged() {
   
   panX += dX;
   panY += dY;
+}
+
+public boolean surfaceTouchEvent(MotionEvent event) {
+  super.surfaceTouchEvent(event);
+  return gesture.surfaceTouchEvent(event);
 }
