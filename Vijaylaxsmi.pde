@@ -20,5 +20,8 @@ class Vijaylaxsmi extends Contact {
     return children;
   }
   
-  public void resetChildren() { children = null; }
+  public void resetChildren() {
+    children = null;
+    super.resetChildren();
+  }
 }
