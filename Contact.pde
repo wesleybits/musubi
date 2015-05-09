@@ -2,7 +2,6 @@ class Contact {
   private int id;
   private String name;
   private ArrayList<Contact> children;
-  private ArrayList<Edge> edges;
   private Contact parent;
   private PVector location;
   private PVector destination;
@@ -12,7 +11,6 @@ class Contact {
     id = _id;
     name = _name;
     children = null;
-    edges = null;
     parent = null;
     location = new PVector(0,0,0);
     destination = new PVector(0,0,0);
@@ -23,7 +21,6 @@ class Contact {
     id = _id;
     name = _name;
     children = null;
-    edges = null;
     parent = _parent;
     location = new PVector(0,0,0);
     destination = new PVector(0,0,0);
@@ -44,21 +41,17 @@ class Contact {
   void destination(PVector _dest) { destination = _dest; }
   void destination(int x, int y) { destination = new PVector(x, y); }
   
-  Contact parent() { return parent; }
+  public Contact parent() { return parent; }
   
-  ArrayList<Contact> children() {
+  public ArrayList<Contact> children() {
     if ( children == null ) {
       children = new ArrayList<Contact>();
-      edges = new ArrayList<Edge>();
       
       if ( db.connect() ) {
-        int i = 0;
         db.query( contactsByIntroducingContact(id) );
         while ( db.next() ) {
           Contact child = new Contact(db.getInt("id"), db.getString("name"), this);
           children.add(child);
-          edges.add(new Edge(i, child));
-          i++;
         }
       }
       
@@ -67,19 +60,18 @@ class Contact {
     return children;
   }
   
-  void resetChildren() { 
+  public void resetChildren() { 
     children = null;
-    edges = null;
     nchild = 0;
   }
   
-  color getColor() { return colorFromString(name); }
+  public color getColor() { return colorFromString(name); }
   
-  float getWidth() {
+  public float getWidth() {
     return max(textWidth(name) + 10.0f, (children().size() + 2) * 80);
   }
   
-  float getHeight() {
+  public float getHeight() {
     float childrenHeights = 0;
     for (Contact child : children()) {
       childrenHeights += child.getHeight();
@@ -87,7 +79,7 @@ class Contact {
     return 145.5f + childrenHeights;
   }
   
-  void draw() {
+  public void draw() {
     float x = location.x;
     float y = location.y;
     float cy = y + 100;
@@ -105,7 +97,7 @@ class Contact {
     }
   }
   
-  void update() {
+  public void update() {
     PVector delta = new PVector(destination.x, destination.y);
     delta.sub(location);
     if (delta.mag() <= 1) {
